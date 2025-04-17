@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/gradient_scaffold.dart';
+import 'package:snackish/pink_background.dart';
 import 'package:snackish/widgets/splash_card.dart';
 import 'package:snackish/widgets/splash_text.dart';
 
@@ -12,24 +13,29 @@ class SplashScreen extends StatelessWidget {
       child: SizedBox.expand(
         child: Stack(
           children: [
-            // Positioned(
-            //   top: 80,
-            //   child: Image.asset('assets/hintergründe/pink_bg.png')),
-            Padding(
-              padding: const EdgeInsets.only(top: 87),
-              child: SplashText(),
+            PinkBackground(),
+            Positioned(
+              left: -10,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 87),
+                child: SplashText(),
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset('assets/grafiken/cupcake_chick.png'),
-              ],
+            Positioned(
+              top: 205,
+              right: -90,
+              child: Transform.scale(
+                scale: 1.2, 
+                child: Image.asset(
+                  'assets/grafiken/cupcake_chick.png',
+                  width: 510, 
+                ),
+              ),
             ),
             Positioned(
               bottom: 280,
               right: 0,
-              left: 0,
+              left: -10,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,7 +51,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 110,
+              bottom: 100,
               right: 0,
               left: 0,
               child: Center(child: SplashCard()))

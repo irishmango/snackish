@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:snackish/food_description_card.dart';
 import 'package:snackish/gradient_scaffold.dart';
 import 'package:snackish/home.dart';
+import 'package:snackish/pink_background.dart';
 import 'package:snackish/splash_screen.dart';
 import 'package:snackish/widgets/splash_card.dart';
 
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: 
-      // SplashScreen()
-      GradientScaffold(child: Center(child: FoodDescriptionCard())),
+      // PinkBackground()
+      SplashScreen()
+      // GradientScaffold(child: Center(child: FoodDescriptionCard())),
     );
   }
 }

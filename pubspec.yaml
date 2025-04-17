@@ -74,6 +74,7 @@ flutter:
     - assets/grafiken/icecream_stick.png
     - assets/grafiken/icecream.png
     - assets/grafiken/star.png
+    - assets/hintergründe/pink_bg.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

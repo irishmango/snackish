@@ -7,16 +7,20 @@ class SplashText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Text("SNACK", 
-      style: GoogleFonts.roboto(
-        fontSize: 122, 
-        height: 0.8,
-        fontWeight: FontWeight.w600,
-        foreground: Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2.54
-          ..color = Colors.white.withAlpha(50)
-        ),),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Text("SNACK SNACK", 
+        style: GoogleFonts.roboto(
+          letterSpacing: 4,
+          fontSize: 128, 
+          height: 0.8,
+          fontWeight: FontWeight.w600,
+          foreground: Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 2.54
+            ..color = Colors.white.withAlpha(50)
+          ),),
+      ),
     );
   }
 }

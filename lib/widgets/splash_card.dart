@@ -9,9 +9,9 @@ class SplashCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(30), // match your container radius
+      borderRadius: BorderRadius.circular(30), 
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15), // adjust blur strength
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15), 
         child: Container(
           width: 340,
           padding: const EdgeInsets.all(30),
