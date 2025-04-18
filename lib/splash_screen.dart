@@ -13,50 +13,48 @@ class SplashScreen extends StatelessWidget {
       child: SizedBox.expand(
         child: Stack(
           children: [
-            PinkBackground(),
+            const PinkBackground(),
             Positioned(
               left: -10,
+              right: 0,
               child: Padding(
                 padding: const EdgeInsets.only(top: 87),
-                child: SplashText(),
+                child: const SplashText(),
               ),
             ),
             Positioned(
               top: 205,
               right: -90,
               child: Transform.scale(
-                scale: 1.2, 
+                scale: 1.2,
                 child: Image.asset(
                   'assets/grafiken/cupcake_chick.png',
-                  width: 510, 
+                  width: 510,
                 ),
               ),
             ),
             Positioned(
               bottom: 280,
-              right: 0,
               left: -10,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SplashText()
-                      
-                    ],
-                  ),
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  SplashText(),
                 ],
               ),
             ),
-            Positioned(
+            const Positioned(
               bottom: 100,
-              right: 0,
               left: 0,
-              child: Center(child: SplashCard()))
+              right: 0,
+              child: Center(
+                child: SplashCard(),
+              ),
+            ),
           ],
         ),
-      ));
+      ),
+    );
   }
 }

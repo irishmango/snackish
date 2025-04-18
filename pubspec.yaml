@@ -74,7 +74,30 @@ flutter:
     - assets/grafiken/icecream_stick.png
     - assets/grafiken/icecream.png
     - assets/grafiken/star.png
+
     - assets/hintergründe/pink_bg.png
+
+    - assets/details/cut_card.png
+    - assets/details/clear_card.svg
+
+    - assets/icons/kcal_icon.svg
+    - assets/icons/low_fat_icon.svg
+    - assets/icons/no_sugar_icon.svg
+    - assets/icons/plant_icon.svg
+
+    - assets/icons/close_button_icon.svg
+    - assets/icons/minus_button.svg
+    - assets/icons/plus_button.svg
+
+    - assets/icons/kcal_icon.png
+    - assets/icons/low_fat_icon.png
+    - assets/icons/no_sugar_icon.png
+    - assets/icons/plant_icon.png
+    - assets/icons/star_filled.png
+    - assets/icons/star_outlined.png
+    - assets/icons/minus_button.png
+    - assets/icons/plus_button.png
+    - assets/icons/close_button_icon.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

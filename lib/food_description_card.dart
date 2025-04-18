@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class FoodDescriptionCard extends StatelessWidget {
   const FoodDescriptionCard({super.key});
@@ -128,9 +130,6 @@ class FoodDescriptionCard extends StatelessWidget {
                           Flexible(
                             flex: 1,
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Ingredients",
                                   style: TextStyle(
@@ -140,22 +139,20 @@ class FoodDescriptionCard extends StatelessWidget {
                                   height: 1.38,
                                   letterSpacing: -0.08
                                   ),),
-                                Text("ICONS")
-                                // Row(
-                                //   children: [
-                                //     SvgPicture.asset('assets/icons/plant_icon.svg',
-                                //     height: 22,
-                                //     width: 22,)
-                                //   ],
-                                // )
+                                Text("ICONS"),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset('assets/icons/plant_icon.svg',
+                                    height: 22,
+                                    width: 22,)
+                                  ],
+                                )
                               ],
                             ),
                           ),
                           Flexible(
                             flex: 1,
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text("Reviews",
                                   style: TextStyle(

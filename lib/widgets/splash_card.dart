@@ -65,7 +65,7 @@ class SplashCard extends StatelessWidget {
                   ),
                 ],
               ),
-              OrderButton()
+              OrderButton(width: 202, title: "Order Now",)
             ],
           ),
     )
