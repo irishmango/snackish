@@ -1,58 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:snackish/gradient_scaffold.dart';
 import 'package:snackish/home_nav_bar.dart';
-import 'package:snackish/pink_background.dart';
-import 'package:snackish/widgets/recommend_card.dart';
+import 'package:snackish/models/menu.dart';
+import 'package:snackish/pink_background_big.dart';
 import 'package:snackish/widgets/home_main_card.dart';
-import 'package:snackish/widgets/order_button.dart';
 import 'package:snackish/widgets/recommended_list.dart';
-import 'package:snackish/widgets/small_order_button.dart';
 import 'package:snackish/widgets/splash_text.dart';
-import 'dart:ui';
+import 'package:snackish/menu_item_card.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  bool showMenuItemCard = false;
+  Menu? selectedMenuItem;
+  
+
+  void _toggleMenuItemCard(Menu? menu) {
+    setState(() {
+      selectedMenuItem = menu;
+      showMenuItemCard = menu != null;
+    });
+}
 
   @override
   Widget build(BuildContext context) {
     return GradientScaffold(
       child: Stack(
         children: [
-          const PinkBackground(),
+          const PinkBackgroundBig(),
           Positioned(
             left: -10,
             right: 0,
             child: Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: const SplashText(strokeOpacity: 15,),
+              padding: const EdgeInsets.only(top: 50),
+              child: const SplashText(strokeOpacity: 15, enabled: false,),
             ),
           ),
-            Positioned(
+          Positioned(
             left: -10,
             right: 0,
-            bottom: 350,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 87),
-              child: const SplashText(strokeOpacity: 15,),
+            bottom: 290,
+            child: const SplashText(strokeOpacity: 15, fontsize: 115, enabled: false,),
+          ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                HomeNavBar(),
+                SizedBox(height: 45),
+                SizedBox(
+                  height: 265,
+                  child: HomeMainCard()
+                ),
+                SizedBox(height: 70,),
+                RecommendedList(onTapCard: _toggleMenuItemCard),
+                
+                
+              ],
             ),
           ),
-          Column(
-            children: [
-              HomeNavBar(),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 300,
-                child: HomeMainCard()
+          if (showMenuItemCard && selectedMenuItem != null)
+              Positioned.fill(
+                child: Stack(
+                  children: [
+                    Container(
+                      color: Colors.black.withAlpha(200),
+                    ),
+                    MenuItemCard(
+                      onClose: () => _toggleMenuItemCard(null),
+                      menu: selectedMenuItem!,
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 30,),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: RecommendedList(),
-              )
-              
-            ],
-          )
         ],
       ));
   }

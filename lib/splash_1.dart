@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:snackish/gradient_scaffold.dart';
 import 'package:snackish/widgets/splash_text.dart';
 

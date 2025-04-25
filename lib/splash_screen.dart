@@ -34,15 +34,10 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 280,
+              bottom: 265,
               left: -10,
               right: 0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  SplashText(),
-                ],
-              ),
+              child: SplashText(fontsize: 115, direction: TextDirection.rtl,),
             ),
             const Positioned(
               bottom: 100,

@@ -5,8 +5,10 @@ class OrderButton extends StatelessWidget {
   final double width;
   final double height;
   final String title;
+  VoidCallback? action;
 
-  const OrderButton({
+  OrderButton({
+    required this.action,
     required this.width,
     required this.title,
     this.height = 48,
@@ -42,7 +44,7 @@ class OrderButton extends StatelessWidget {
     
       ),
       child: TextButton(
-        onPressed: () {}, 
+        onPressed: action, 
         child: Center(
           child: Text(title,
             style: GoogleFonts.inter(

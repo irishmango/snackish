@@ -1,99 +1,101 @@
-import 'package:flutter/widgets.dart';
+enum PortionSize { small, medium, large }
 
 class Menu {
   final String title;
   final String subtitle;
   final String description;
-  final String price;
   final String likes;
   final String imagePath;
+  final Map<PortionSize, double> prices;
 
-  Menu({required this.title, required this.subtitle, required this.description, required this.price, required this.likes, required this.imagePath});
+  Menu({
+    required this.title,
+    required this.subtitle,
+    required this.description,
+    required this.likes,
+    required this.imagePath,
+    required this.prices,
+  });
 }
 
 final List<Menu> menu = [
   Menu(
     title: 'Mogli’s Cup',
     subtitle: 'Strawberry ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€8.99',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
-    imagePath: 'assets/grafiken/cupkake_cat.png'
+    imagePath: 'assets/grafiken/cupkake_cat.png',
+    prices: {
+      PortionSize.small: 4.99,
+      PortionSize.medium: 6.99,
+      PortionSize.large: 8.99,
+    },
   ),
   Menu(
     title: 'Angi’s Yummy Burger',
     subtitle: 'Vegan burger',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€13.99',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
-    imagePath: 'assets/grafiken/burger.png'
+    imagePath: 'assets/grafiken/burger.png',
+    prices: {
+      PortionSize.small: 6.99,
+      PortionSize.medium: 9.99,
+      PortionSize.large: 13.99,
+    },
   ),
   Menu(
     title: 'Cupcake Chick',
     subtitle: 'Vanilla cupcake',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€4.50',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
-    imagePath: 'assets/grafiken/cupcake_chick.png'
+    imagePath: 'assets/grafiken/cupcake_chick.png',
+    prices: {
+      PortionSize.small: 2.50,
+      PortionSize.medium: 3.50,
+      PortionSize.large: 4.50,
+    },
   ),
   Menu(
     title: 'Balu’s Cup',
     subtitle: 'Pistachio ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€8.99',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
     imagePath: 'assets/grafiken/icecream_cone.png',
+    prices: {
+      PortionSize.small: 5.99,
+      PortionSize.medium: 6.99,
+      PortionSize.large: 8.99,
+    },
   ),
   Menu(
     title: 'Smiling David',
     subtitle: 'Chocolate ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€3.99',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
     imagePath: 'assets/grafiken/icecream_stick.png',
+    prices: {
+      PortionSize.small: 2.99,
+      PortionSize.medium: 3.49,
+      PortionSize.large: 3.99,
+    },
   ),
   Menu(
     title: 'Kai in a Cone',
     subtitle: 'Vanilla ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€3.99',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: '200',
     imagePath: 'assets/grafiken/icecream.png',
+    prices: {
+      PortionSize.small: 2.99,
+      PortionSize.medium: 3.49,
+      PortionSize.large: 3.99,
+    },
   ),
 ];
 
-
 final List<Menu> recommendationMenu = [
-  Menu(
-    title: 'Mogli’s Cup',
-    subtitle: 'Strawberry ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€8.99',
-    likes: '200',
-    imagePath: 'assets/grafiken/cupkake_cat.png'
-  ),
-  Menu(
-    title: 'Balu’s Cup',
-    subtitle: 'Pistachio ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€8.99',
-    likes: '200',
-    imagePath: 'assets/grafiken/icecream.png',
-  ),
-  Menu(
-    title: 'Smiling David',
-    subtitle: 'Chocolate ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€3.99',
-    likes: '200',
-    imagePath: 'assets/grafiken/icecream_stick.png',
-  ),
-  Menu(
-    title: 'Kai in a Cone',
-    subtitle: 'Vanilla ice cream',
-    description: 'Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.',
-    price: '€3.99',
-    likes: '200',
-    imagePath: 'assets/grafiken/icecream_cone.png',
-  ),
+  menu[0], // Mogli’s Cup
+  menu[3], // Balu’s Cup
+  menu[4], // Smiling David
+  menu[5], // Kai in a Cone
 ];

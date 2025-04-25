@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui';
+import 'package:snackish/home.dart';
 
 import 'package:snackish/widgets/order_button.dart';
 class SplashCard extends StatelessWidget {
@@ -65,7 +66,14 @@ class SplashCard extends StatelessWidget {
                   ),
                 ],
               ),
-              OrderButton(width: 202, title: "Order Now",)
+              OrderButton(width: 202, title: "Order Now", action: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const Home(),
+                  ),
+                );
+
+              },)
             ],
           ),
     )
