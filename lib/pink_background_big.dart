@@ -10,7 +10,7 @@ class PinkBackgroundBig extends StatelessWidget {
       child: Stack(
         children: [
           Transform.translate(
-            offset: const Offset(110, -280), // adjust this value to fine-tune the curve position
+            offset: const Offset(110, -280),
             child: Transform.scale(
               scale: 2.4,
               child: Image.asset(
