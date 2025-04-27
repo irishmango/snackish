@@ -14,8 +14,9 @@ class GradientScaffold extends StatelessWidget {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment(0.0, 12.5),
+            
+            begin: Alignment.center,
+            end: Alignment(0.0, 4.5),
             colors: [
               Color.fromRGBO(47, 43, 34, 1),
               Color.fromRGBO(67, 127, 151, 1),

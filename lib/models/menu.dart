@@ -19,6 +19,7 @@ class Menu {
 }
 
 final List<Menu> menu = [
+
   Menu(
     title: 'Mogli’s Cup',
     subtitle: 'Strawberry ice cream',
@@ -89,6 +90,18 @@ final List<Menu> menu = [
       PortionSize.small: 2.99,
       PortionSize.medium: 3.49,
       PortionSize.large: 3.99,
+    },
+  ),
+
+    Menu(
+    title: "Angi's Yummy Burger",
+    subtitle: 'Delish vegan burger that tastes like heaven',
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
+    likes: '200',
+    imagePath: 'assets/grafiken/burger.png',
+    prices: {
+      PortionSize.medium: 13.99,
+      PortionSize.large: 15.49,
     },
   ),
 ];

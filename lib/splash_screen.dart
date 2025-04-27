@@ -4,8 +4,8 @@ import 'package:snackish/pink_background.dart';
 import 'package:snackish/widgets/splash_card.dart';
 import 'package:snackish/widgets/splash_text.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class SplashScreenOld extends StatelessWidget {
+  const SplashScreenOld({super.key});
 
   @override
   Widget build(BuildContext context) {

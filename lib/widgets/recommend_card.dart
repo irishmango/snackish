@@ -9,8 +9,7 @@ class RecommendCard extends StatelessWidget {
   const RecommendCard({
     required this.recommendationMenu,
     required this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key});
 
 
   @override
@@ -70,14 +69,17 @@ class RecommendCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('€${recommendationMenu.prices[PortionSize.small]!.toStringAsFixed(2)}',
+                      Text(
+                      recommendationMenu.prices[PortionSize.small] != null
+                        ? '€${recommendationMenu.prices[PortionSize.small]!.toStringAsFixed(2)}'
+                        : 'Price N/A',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
                         height: 1.54,
-                        color: Colors.white
+                        color: Colors.white,
                       ),
-                      ),
+                    ),
                       Row(
                         children: [
                           Icon(Icons.favorite_border_outlined, color: Color.fromRGBO(235, 235, 245, 0.6)),

@@ -34,13 +34,13 @@ class OrderButton extends StatelessWidget {
           radius: 3.2
           ),
           boxShadow: [
-  BoxShadow(
-    color: Color.fromRGBO(234, 113, 197, 0.5), 
-    offset: Offset(0, 10),
-    blurRadius: 30,
-    spreadRadius: 0,
-  ),
-],
+            BoxShadow(
+              color: Color.fromRGBO(234, 113, 197, 0.5), 
+              offset: Offset(0, 10),
+              blurRadius: 30,
+              spreadRadius: 0,
+            ),
+          ],
     
       ),
       child: TextButton(

@@ -20,6 +20,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
   bool isFav = false;
   int quantity = 1;
   PortionSize selectedSize = PortionSize.small;
+  bool showAddedMessage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,18 @@ class _MenuItemCardState extends State<MenuItemCard> {
     }
   }
 
+  void showAddedPopup() {
+    setState(() {
+      showAddedMessage = true;
+    });
+    Future.delayed(Duration(seconds: 2), () {
+      if (mounted) {
+        setState(() {
+          showAddedMessage = false;
+        });
+      }
+    });
+  }
     return Stack(
       children: [
         //modular card behind
@@ -73,6 +86,37 @@ class _MenuItemCardState extends State<MenuItemCard> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   spacing: 32,
                   children: [
+
+                    if (showAddedMessage) 
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent, 
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white.withAlpha(5), 
+                              blurRadius: 20,
+                              spreadRadius: 5,
+                            ),
+                          ],
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Added to Order!",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
                     Center(
                       child: SizedBox(
                         width: 340,
@@ -232,9 +276,13 @@ class _MenuItemCardState extends State<MenuItemCard> {
                     
                     Padding(
                       padding: const EdgeInsets.only(bottom: 55),
-                      child: OrderButton(width: 340, title: "Add to order for €${(widget.menu.prices[selectedSize]! * quantity).toStringAsFixed(2)}", action: () {
-                        
-                      },)
+                      child: OrderButton(
+                        width: 340,
+                        title: "Add to order for €${(widget.menu.prices[selectedSize]! * quantity).toStringAsFixed(2)}",
+                        action: () {
+                          showAddedPopup(); 
+                        },
+                      )
                     ),
                   ],
                 ),
@@ -343,6 +391,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
                         ),
                         Divider(thickness: 0.5),
 
+
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -420,10 +469,13 @@ class _MenuItemCardState extends State<MenuItemCard> {
                           ),
                         )
 
+                        
+
 
                       ],
                     ),
                   ),
+
                   
                 ],
               ),
@@ -431,6 +483,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
           ),
         ),
         
+                  
       ],
     );
   }

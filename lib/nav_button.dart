@@ -34,25 +34,25 @@ class _NavButtonState extends State<NavButton> {
           filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15), 
           child: Container(
             width: 95,
-            height: 48,
+            height: 45,
             decoration: 
             buttonState 
             ? ShapeDecoration(
-              color: Colors.white.withAlpha(127),
+              color: Colors.white.withAlpha(178),
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                   width: 1,
-                  color: Colors.white.withAlpha(30),
+                  color: Colors.white.withAlpha(100),
                 ),
                 borderRadius: BorderRadius.circular(30),
               ),
               )
             : ShapeDecoration(
-              color: Colors.white.withAlpha(1),
+              color: Colors.white.withAlpha(51),
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                   width: 1,
-                  color: Colors.white.withAlpha(30),
+                  color: Colors.white.withAlpha(127),
                 ),
                 borderRadius: BorderRadius.circular(30),
               ),
