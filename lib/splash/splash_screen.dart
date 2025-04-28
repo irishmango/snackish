@@ -13,6 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
   List<bool> isVisible = List.generate(8, (_) => false);
+  List<SplashText> splashTextList = [];
 
   late AnimationController _cupcakeController;
   late AnimationController _backgroundController;
@@ -26,27 +27,36 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _cupcakeController = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _backgroundController = AnimationController(vsync: this, duration: Duration(milliseconds: 800));
-    _cardController = AnimationController(vsync: this, duration: Duration(milliseconds: 800));
-    _splashTextController = AnimationController(vsync: this, duration: Duration(milliseconds: 400));
 
-    _backgroundOffset = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0)).animate(
+    splashTextList = List.generate(
+      8,
+      (index) => SplashText(
+        enabled: false,
+        fontsize: 140,
+      ),
+    );
+
+    _cupcakeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
+    _backgroundController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+    _cardController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+    _splashTextController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
+
+    _backgroundOffset = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(
       CurvedAnimation(parent: _backgroundController, curve: Curves.easeOut),
     );
-    _cardOffset = Tween<Offset>(begin: Offset(0, 2), end: Offset(0, 0)).animate(
+    _cardOffset = Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero).animate(
       CurvedAnimation(parent: _cardController, curve: Curves.easeOut),
     );
-    _splashTextOffset = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).animate(
-      CurvedAnimation(parent: _splashTextController, curve: Curves.easeIn)
+    _splashTextOffset = Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero).animate(
+      CurvedAnimation(parent: _splashTextController, curve: Curves.easeIn),
     );
 
     _startAnimation();
   }
 
   Future<void> _startAnimation() async {
-    // splash text comes from bottom
-    for (int i = isVisible.length - 1; i >= 0; i--) {
+    // Appear from bottom
+    for (int i = splashTextList.length - 1; i >= 0; i--) {
       await Future.delayed(const Duration(milliseconds: 200));
       setState(() {
         isVisible[i] = true;
@@ -55,8 +65,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     await Future.delayed(const Duration(milliseconds: 500));
 
-    // splash text hides from bottom
-    for (int i = isVisible.length - 1; i > 0; i--) {
+    // Disappear from bottom
+    for (int i = splashTextList.length - 1; i > 0; i--) {
       await Future.delayed(const Duration(milliseconds: 200));
       setState(() {
         isVisible[i] = false;
@@ -65,11 +75,11 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     await Future.delayed(const Duration(milliseconds: 300));
 
-    // show cupcake
+    // Continue with cupcake and background
     _cupcakeController.forward();
     await Future.delayed(const Duration(milliseconds: 500));
+    
 
-    // background and card come in
     await _backgroundController.forward();
     await _cardController.forward();
     await _splashTextController.forward();
@@ -80,6 +90,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _cupcakeController.dispose();
     _backgroundController.dispose();
     _cardController.dispose();
+    _splashTextController.dispose();
     super.dispose();
   }
 
@@ -88,13 +99,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     return GradientScaffold(
       child: Stack(
         children: [
-          // pink bg moves in
+          // Pink background slide in
           SlideTransition(
             position: _backgroundOffset,
             child: const PinkBackground(),
           ),
 
-          // Splash texts
+          // Splash texts appearing and disappearing
           Positioned(
             left: -10,
             child: Padding(
@@ -105,10 +116,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                     return AnimatedOpacity(
                       opacity: isVisible[index] ? 1.0 : 0.0,
                       duration: const Duration(milliseconds: 300),
-                      child: SplashText(
-                        enabled: false,
-                        fontsize: 140,
-                      ),
+                      child: splashTextList[index],
                     );
                   }),
                 ),
@@ -116,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
           ),
 
-          // Cupcake image 
+          // Cupcake image fade in
           Positioned(
             top: 205,
             right: -90,
@@ -132,19 +140,21 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
           ),
 
-
-          // lower Splash text 
+          // Lower moving SplashText
           Positioned(
-              bottom: 265,
-              left: -10,
-              right: 0,
-              child: SlideTransition(
-                position: _splashTextOffset,
-                child: SplashText(fontsize: 115, direction: TextDirection.rtl,)),
+            bottom: 265,
+            left: -10,
+            right: 0,
+            child: SlideTransition(
+              position: _splashTextOffset,
+              child: const SplashText(
+                fontsize: 115,
+                direction: TextDirection.rtl,
+              ),
             ),
-          
+          ),
 
-          // Splash card
+          // SplashCard sliding up
           Positioned(
             bottom: 100,
             left: 0,

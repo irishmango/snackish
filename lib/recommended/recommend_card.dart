@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/models/menu.dart';
-import 'package:snackish/widgets/frosted_color_card.dart';
+import 'package:snackish/card_widgets/frosted_color_card.dart';
 
 class RecommendCard extends StatelessWidget {
   final Menu recommendationMenu;
@@ -20,7 +20,7 @@ class RecommendCard extends StatelessWidget {
       
       child: Stack(
         children: [
-            FrostedCardColor(width: 210, height: 288,),
+          FrostedCardColor(width: 210, height: 288,),
       
           SizedBox(
             width: 210,

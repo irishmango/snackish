@@ -5,6 +5,7 @@ import 'package:snackish/home/menu/menu_item/menu_item_card.dart';
 import 'package:snackish/home/menu/menu_item/reviews.dart';
 import 'package:snackish/card_widgets/clear_card.dart';
 import 'package:snackish/models/menu.dart';
+import 'package:snackish/home/menu/menu_item/portion_size_widget.dart';
 
 class MenuItemDescription extends StatelessWidget {
   final bool isFav;

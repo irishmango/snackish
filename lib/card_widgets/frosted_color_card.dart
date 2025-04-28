@@ -27,8 +27,8 @@ class FrostedCardColor extends StatelessWidget {
               stops: const [-1, 0.5, 1.0],
               colors: const [
                 Color.fromRGBO(255, 255, 255, 0.1), 
-                Color.fromRGBO(144, 140, 245, 1), 
-                Color.fromRGBO(107, 45, 222, 1), 
+                Color.fromRGBO(144, 140, 245, 0.75), 
+                Color.fromRGBO(140, 91, 234, 0.74), 
               ],
             ),
             border: Border.all(

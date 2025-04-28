@@ -15,16 +15,18 @@ class HomeMainCard extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+
+                // Card
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(32),
                   child: Stack(
                     children: [
                       BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                         child: Container(
                           width: 400,
-                          height: 300,
+                          height: 320,
                           color: Colors.transparent,
                         ),
                       ),
@@ -34,11 +36,14 @@ class HomeMainCard extends StatelessWidget {
                         width: 400,
                         height: 320,
                         fit: BoxFit.contain,
+                        
                       ),
                     ],
                   ),
                 ),
               ),
+
+              // Texts
               Padding(
                 padding: const EdgeInsets.fromLTRB(40, 20, 50, 20),
                 child: Row(
@@ -81,9 +86,13 @@ class HomeMainCard extends StatelessWidget {
                             HeadlineMediumText("€13.99")
                           ],
                         ),
+
+                        // Button
                         SmallOrderButton(),
                       ],
                     ),
+
+                    // Star Review
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
