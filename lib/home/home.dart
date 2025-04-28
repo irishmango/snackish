@@ -85,11 +85,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               children: [
                 HomeNavBar(),
                 SizedBox(height: 45),
-                SizedBox(
-                  height: 265,
-                  child: HomeMainCard()
-                ),
-                SizedBox(height: 70,),
+                HomeMainCard(),
+                SizedBox(height: 50,),
                 RecommendedList(onTapCard: _toggleMenuItemCard),
               ],
             ),
