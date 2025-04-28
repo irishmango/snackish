@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/gradient_scaffold.dart';
-import 'package:snackish/home_nav_bar.dart';
+import 'package:snackish/src/background/gradient_scaffold.dart';
+import 'package:snackish/home/navigation/home_nav_bar.dart';
 import 'package:snackish/models/menu.dart';
-import 'package:snackish/pink_background_big.dart';
-import 'package:snackish/widgets/home_main_card.dart';
-import 'package:snackish/widgets/recommended_list.dart';
-import 'package:snackish/widgets/splash_text.dart';
-import 'package:snackish/menu_item_card.dart';
+import 'package:snackish/src/background/pink_background_big.dart';
+import 'package:snackish/home/main_card/home_main_card.dart';
+import 'package:snackish/recommended/recommended_list.dart';
+import 'package:snackish/splash/splash_text.dart';
+import 'package:snackish/home/menu/menu_item/menu_item_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -23,17 +23,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   
 
   void _toggleMenuItemCard(Menu? menu) {
+  if (menu != null) {
     setState(() {
       selectedMenuItem = menu;
-      showMenuItemCard = menu != null;
+      showMenuItemCard = true;
     });
-    
-    if (menu != null) {
-      _controller.forward(); 
-    } else {
-      _controller.reverse();
-    }
+    _controller.forward();
+  } else {
+    _controller.reverse().then((_) {
+      if (mounted) {
+        setState(() {
+          showMenuItemCard = false;
+          selectedMenuItem = null;
+        });
+      }
+    });
   }
+}
 
   @override
   void initState() {

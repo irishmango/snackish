@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/gradient_scaffold.dart';
+import 'package:snackish/src/background/gradient_scaffold.dart';
 
 class PinkBackgroundBig extends StatelessWidget {
   const PinkBackgroundBig({super.key});

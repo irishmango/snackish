@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui';
-import 'package:snackish/home.dart';
+import 'package:snackish/home/home.dart';
 
-import 'package:snackish/widgets/order_button.dart';
+import 'package:snackish/buttons/order_button.dart';
 class SplashCard extends StatelessWidget {
   const SplashCard({super.key});
 

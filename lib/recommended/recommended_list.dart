@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/widgets/recommend_card.dart';
+import 'package:snackish/recommended/recommend_card.dart';
 import 'package:snackish/models/menu.dart';
 
 class RecommendedList extends StatelessWidget {

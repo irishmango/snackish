@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snackish/theme.dart';
-import 'package:snackish/widgets/small_order_button.dart';
+import 'package:snackish/buttons/small_order_button.dart';
 import 'dart:ui';
 
 class HomeMainCard extends StatelessWidget {
