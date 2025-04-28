@@ -6,7 +6,7 @@ class AppColors {
 
 ThemeData primaryTheme = ThemeData(
 
-  // Scaffold Color
+
 
 
   // TextTheme

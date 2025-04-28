@@ -66,7 +66,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
     
     return Stack(
       children: [
-        //modular card behind
+        // modular card behind
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -111,6 +111,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
                       ),
                     ),
 
+                    // Portion Size and Quantity
                     Center(
                       child: SizedBox(
                         width: 340,
@@ -136,6 +137,8 @@ class _MenuItemCardState extends State<MenuItemCard> {
                       ),
                     ),
                     
+
+                    // Button
                     Padding(
                       padding: const EdgeInsets.only(bottom: 55),
                       child: OrderButton(
@@ -154,6 +157,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
           ),
         ),
         
+        // Image
         Image.asset(widget.menu.imagePath),
 
         Positioned(
@@ -166,6 +170,8 @@ class _MenuItemCardState extends State<MenuItemCard> {
                     child: SvgPicture.asset('assets/icons/close_button_icon.svg', height: 30,))
                 )),
         
+
+        // Center Card
         Padding(
           padding: const EdgeInsets.only(top: 40),
           child: Center(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/src/background/gradient_scaffold.dart';
 import 'package:snackish/src/background/pink_background.dart';
-import 'package:snackish/widgets/splash_card.dart';
+import 'package:snackish/card_widgets/splash_card.dart';
 import 'package:snackish/splash/splash_text.dart';
 
 class SplashScreen extends StatefulWidget {
