@@ -15,38 +15,29 @@ class PortionSizeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 170,
+      padding: EdgeInsets.all(2),
+      width: 175,
       height: 30,
       decoration: BoxDecoration(
         color: Color.fromRGBO(118, 118, 128, .24),
         borderRadius: BorderRadius.circular(9),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
 
           _buildSizeButton(PortionSize.small, "Small"),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9),
-            child: VerticalDivider(width: 1, thickness: 1),
-          ),
-
+          _buildDivider(isVisible: selectedSize != PortionSize.small && selectedSize != PortionSize.medium),
+          
           _buildSizeButton(PortionSize.medium, "Medium"),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9),
-            child: VerticalDivider(width: 1, thickness: 1),
-          ),
-
+          _buildDivider(isVisible: selectedSize != PortionSize.medium && selectedSize != PortionSize.large),
+          
           _buildSizeButton(PortionSize.large, "Large"),
+
         ],
-      ),
+      )
     );
   }
-
-
-
-
-
 
   Widget _buildSizeButton(PortionSize size, String label) {
     final isSelected = selectedSize == size;
@@ -54,7 +45,7 @@ class PortionSizeSelector extends StatelessWidget {
       onTap: () => onSizeSelected(size),
       child: Container(
         height: 25,
-        width: 50,
+        width: 55,
         decoration: BoxDecoration(
           color: isSelected ? const Color.fromRGBO(99, 99, 102, 1) : Colors.transparent,
           borderRadius: BorderRadius.circular(7),
@@ -64,9 +55,20 @@ class PortionSizeSelector extends StatelessWidget {
             label, 
             color: isSelected
                   ? Color.fromRGBO(235, 235, 245, 1)
-                  : Color.fromRGBO(235, 235, 235, .6),)
+                  : Color.fromRGBO(235, 235, 235, .6),
+          ),
         ),
       ),
     );
   }
+
+  Widget _buildDivider({required bool isVisible}) {
+  return Opacity(
+    opacity: isVisible ? 1 : 0,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 9),
+      child: VerticalDivider(width: 1, thickness: 1),
+    ),
+  );
+}
 }

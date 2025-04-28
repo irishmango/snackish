@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snackish/models/menu.dart';
 import 'package:snackish/card_widgets/frosted_color_card.dart';
 
-class RecommendCard extends StatelessWidget {
+class RecommendCard extends StatefulWidget {
   final Menu recommendationMenu;
   final VoidCallback onTap;
 
@@ -11,12 +11,26 @@ class RecommendCard extends StatelessWidget {
     required this.onTap,
     super.key});
 
+  @override
+  State<RecommendCard> createState() => _RecommendCardState();
+}
+
+class _RecommendCardState extends State<RecommendCard> {
+  bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
+
+    void toggleFav() {
+      setState(() {
+        isFav = !isFav;
+      });
+    
+    }
+
     return GestureDetector(
       onTap:
-        onTap,
+        widget.onTap,
       
       child: Stack(
         children: [
@@ -33,7 +47,7 @@ class RecommendCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Center(
-                    child: Image.asset(recommendationMenu.imagePath, 
+                    child: Image.asset(widget.recommendationMenu.imagePath, 
                     width: 170,),
                   ),
                 ),
@@ -43,7 +57,7 @@ class RecommendCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(recommendationMenu.title,
+                      Text(widget.recommendationMenu.title,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -52,9 +66,9 @@ class RecommendCard extends StatelessWidget {
                         color: Colors.white
                       ),
                       ),
-                      Text(recommendationMenu.subtitle,
+                      Text(widget.recommendationMenu.subtitle,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
                         height: 1.33,
                         color: Color.fromRGBO(235, 235, 245, .6)
@@ -70,20 +84,34 @@ class RecommendCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                      recommendationMenu.prices[PortionSize.small] != null
-                        ? '€${recommendationMenu.prices[PortionSize.small]!.toStringAsFixed(2)}'
+                      widget.recommendationMenu.prices[PortionSize.small] != null
+                        ? '₳${widget.recommendationMenu.prices[PortionSize.small]!.toStringAsFixed(2)}'
                         : 'Price N/A',
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 15,
                         fontWeight: FontWeight.w400,
                         height: 1.54,
                         color: Colors.white,
                       ),
                     ),
                       Row(
+                        spacing: 4,
                         children: [
-                          Icon(Icons.favorite_border_outlined, color: Color.fromRGBO(235, 235, 245, 0.6)),
-                          Text(recommendationMenu.likes,
+                          GestureDetector(
+                            onTap: toggleFav,
+                            child: isFav
+                                ? Icon(
+                                    Icons.favorite_rounded,
+                                    color: Color.fromRGBO(217, 66, 171, 1),
+                                    size: 18,
+                                  )
+                                : Icon(
+                                    Icons.favorite_border_rounded,
+                                    color: Color.fromRGBO(235, 235, 240, 0.6),
+                                    size: 18,
+                                  ),
+                          ),
+                          Text(widget.recommendationMenu.likes,
                           style: TextStyle(
                             color: Color.fromRGBO(235, 235, 245, 0.6),
                             fontSize: 13,

@@ -3,9 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snackish/theme.dart';
 import 'package:snackish/buttons/small_order_button.dart';
 import 'dart:ui';
+import 'package:snackish/models/menu.dart';
+
 
 class HomeMainCard extends StatelessWidget {
-  const HomeMainCard({super.key});
+  final Menu menu;
+
+  const HomeMainCard(this.menu, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +65,7 @@ class HomeMainCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Angi's Yummy Burger",
+                                    menu.title,
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
@@ -71,11 +75,12 @@ class HomeMainCard extends StatelessWidget {
                                   ),
                                   SizedBox(height: 6),
                                   SizedBox(
-                                    width: 140,
+                                    width: 150,
+                                    height: 35,
                                     child: Text(
-                                      "Delish vegan burger that tastes like heaven",
+                                      menu.subtitle,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13,
                                         fontWeight: FontWeight.w500,
                                         letterSpacing: 0.35,
                                         color: Color.fromRGBO(217, 217, 217, 1),
@@ -85,7 +90,7 @@ class HomeMainCard extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(height: 12),
-                              HeadlineMediumText("€13.99")
+                              HeadlineMediumText("₳13.99")
                             ],
                           ),
       
@@ -119,7 +124,7 @@ class HomeMainCard extends StatelessWidget {
             right: 20,
             top: 45,
             child: Image.asset(
-              'assets/grafiken/burger.png',
+              menu.imagePath,
               width: 240,
             ),
           ),

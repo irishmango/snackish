@@ -10,7 +10,7 @@ class PinkBackground extends StatelessWidget {
       child: Image.asset(
         'assets/hintergründe/pink_bg.png',
         width: 500, 
-        fit: BoxFit.cover, 
+        fit: BoxFit.cover,
       ),
     );
   }

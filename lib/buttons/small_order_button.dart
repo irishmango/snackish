@@ -15,7 +15,7 @@ class SmallOrderButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Color.fromRGBO(181, 143, 198, 1)
+          color: const Color.fromARGB(255, 181, 118, 191)
         ),
         gradient: RadialGradient(
           colors: [
@@ -23,7 +23,7 @@ class SmallOrderButton extends StatelessWidget {
             Color.fromRGBO(187, 141, 225, 1)
           ],
           center: Alignment(0.8, 0.7),
-          radius: 3.2
+          radius: 1.8
           ),
           boxShadow: [
             BoxShadow(

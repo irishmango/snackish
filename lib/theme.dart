@@ -26,7 +26,7 @@ ThemeData primaryTheme = ThemeData(
     titleLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
 
     displaySmall: TextStyle(fontFamily: 'Inter', fontSize: 16, height: 1.87, fontWeight: FontWeight.w900, color: Colors.white),
-    displayMedium: TextStyle(fontFamily: 'Inter', fontSize: 22, height: 1.27, letterSpacing: 0.35, fontWeight: FontWeight.w900, color: Colors.white),
+    displayMedium: TextStyle(fontFamily: 'Inter', fontSize: 22, height: 1.27, letterSpacing: 0.35, fontWeight: FontWeight.w900, color: Colors.white, ),
 
   ),
 );
@@ -158,11 +158,22 @@ class DisplaySmallText extends StatelessWidget {
 class DisplayMediumText extends StatelessWidget {
   final String text;
   final Color? color;
-  const DisplayMediumText(this.text, {this.color, super.key});
+  final TextAlign textAlign;
+
+  const DisplayMediumText(
+    this.text, {
+    this.color,
+    this.textAlign = TextAlign.start, 
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme.displayMedium;
-    return Text(text, style: style?.copyWith(color: color ?? style.color));
+    return Text(
+      text,
+      style: style?.copyWith(color: color ?? style.color),
+      textAlign: textAlign, 
+    );
   }
 }

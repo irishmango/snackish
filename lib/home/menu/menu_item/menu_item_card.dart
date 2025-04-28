@@ -143,7 +143,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
                       padding: const EdgeInsets.only(bottom: 55),
                       child: OrderButton(
                         width: 340,
-                        title: "Add to order for €${(widget.menu.prices[selectedSize]! * quantity).toStringAsFixed(2)}",
+                        title: "Add to order for ₳${(widget.menu.prices[selectedSize]! * quantity).toStringAsFixed(2)}",
                         action: () {
                           showAddedPopup(); 
                         },

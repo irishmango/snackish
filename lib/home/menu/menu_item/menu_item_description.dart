@@ -96,7 +96,7 @@ class MenuItemDescription extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 16, horizontal: 16),
                       child: Text(
-                        "€${widget.menu.prices[selectedSize]!.toStringAsFixed(2)}",
+                        "₳${widget.menu.prices[selectedSize]!.toStringAsFixed(2)}",
                         style: TextStyle(
                           color: Colors.white,
                           letterSpacing: 0.35,

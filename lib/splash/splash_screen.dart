@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/src/background/gradient_scaffold.dart';
 import 'package:snackish/src/background/pink_background.dart';
-import 'package:snackish/card_widgets/splash_card.dart';
+import 'package:snackish/splash/splash_card.dart';
 import 'package:snackish/splash/splash_text.dart';
+import 'package:snackish/home/home.dart'; // <-- your Home page
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,10 +20,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   late AnimationController _backgroundController;
   late AnimationController _cardController;
   late AnimationController _splashTextController;
+  late AnimationController _pinkCoverController; // <-- important
 
   late Animation<Offset> _backgroundOffset;
   late Animation<Offset> _cardOffset;
   late Animation<Offset> _splashTextOffset;
+  late Animation<Offset> _pinkCoverOffset; // <-- important
 
   @override
   void initState() {
@@ -40,6 +43,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _backgroundController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
     _cardController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
     _splashTextController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
+    _pinkCoverController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
 
     _backgroundOffset = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(
       CurvedAnimation(parent: _backgroundController, curve: Curves.easeOut),
@@ -50,12 +54,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _splashTextOffset = Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero).animate(
       CurvedAnimation(parent: _splashTextController, curve: Curves.easeIn),
     );
+    _pinkCoverOffset = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(
+      CurvedAnimation(parent: _pinkCoverController, curve: Curves.easeOut),
+    );
 
     _startAnimation();
   }
 
   Future<void> _startAnimation() async {
-    // Appear from bottom
     for (int i = splashTextList.length - 1; i >= 0; i--) {
       await Future.delayed(const Duration(milliseconds: 200));
       setState(() {
@@ -65,7 +71,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     await Future.delayed(const Duration(milliseconds: 500));
 
-    // Disappear from bottom
     for (int i = splashTextList.length - 1; i > 0; i--) {
       await Future.delayed(const Duration(milliseconds: 200));
       setState(() {
@@ -75,15 +80,31 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     await Future.delayed(const Duration(milliseconds: 300));
 
-    // Continue with cupcake and background
     _cupcakeController.forward();
     await Future.delayed(const Duration(milliseconds: 500));
-    
 
     await _backgroundController.forward();
     await _cardController.forward();
     await _splashTextController.forward();
   }
+
+  void _orderNow() async {
+  await _pinkCoverController.forward();
+  if (mounted) {
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 400),
+        pageBuilder: (context, animation, secondaryAnimation) => const Home(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
+    );
+  }
+}
 
   @override
   void dispose() {
@@ -91,6 +112,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _backgroundController.dispose();
     _cardController.dispose();
     _splashTextController.dispose();
+    _pinkCoverController.dispose();
     super.dispose();
   }
 
@@ -99,13 +121,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     return GradientScaffold(
       child: Stack(
         children: [
-          // Pink background slide in
+          // Pink background (static)
           SlideTransition(
             position: _backgroundOffset,
             child: const PinkBackground(),
           ),
 
-          // Splash texts appearing and disappearing
+          // SplashText list
           Positioned(
             left: -10,
             child: Padding(
@@ -124,7 +146,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
           ),
 
-          // Cupcake image fade in
+          // Cupcake Image
           Positioned(
             top: 205,
             right: -90,
@@ -140,7 +162,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
           ),
 
-          // Lower moving SplashText
+          // Sliding Splash Text
           Positioned(
             bottom: 265,
             left: -10,
@@ -154,18 +176,34 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
           ),
 
-          // SplashCard sliding up
+          // Splash Card
           Positioned(
             bottom: 100,
             left: 0,
             right: 0,
             child: SlideTransition(
               position: _cardOffset,
-              child: const Center(
-                child: SplashCard(),
+              child: Center(
+                child: SplashCard(
+                  onOrderNow: _orderNow,
+                ),
               ),
             ),
           ),
+
+          // Pink Cover Image
+          SlideTransition(
+            position: _pinkCoverOffset,
+            child: SizedBox.expand(
+              child: Transform.translate(
+                offset: const Offset(0, 0),
+              child: Image.asset(
+                'assets/hintergründe/background_pink_big.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          )
         ],
       ),
     );
