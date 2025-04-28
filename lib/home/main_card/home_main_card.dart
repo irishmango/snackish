@@ -92,14 +92,7 @@ class HomeMainCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Image.asset('assets/grafiken/star.png', height: 25,),
-                              Text("4.8",
-                              style: TextStyle(
-                                fontSize: 12,
-                                letterSpacing: 0.35,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(217, 217, 217, 1)
-                              ),
-                              )
+                              BodyMediumText("4.8", color: Color.fromRGBO(217, 217, 217, 1))
                             ],
                           ),
                         ],

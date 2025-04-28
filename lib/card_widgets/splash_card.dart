@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:snackish/home/home.dart';
 
 import 'package:snackish/buttons/order_button.dart';
+import 'package:snackish/theme.dart';
 class SplashCard extends StatelessWidget {
   const SplashCard({super.key});
 
@@ -40,18 +41,9 @@ class SplashCard extends StatelessWidget {
                 children: [
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text("Feeling Snackish Today?", 
-                      style: GoogleFonts.inter(
-                        textStyle: TextStyle(
-                          color: Colors.white, 
-                          fontSize: 22, 
-                          height: 1.27, 
-                          letterSpacing: 0.35, 
-                          fontWeight: FontWeight.w900)
-                          ),
-                          textAlign: TextAlign.center,
-                    ),
+                    child: DisplayMediumText("Feeling Snackish Today?")
                   ),
+
                   SizedBox(
                     width: 270,
                     child: Text("Explore Angi's most popular snack selection and get instantly happy",

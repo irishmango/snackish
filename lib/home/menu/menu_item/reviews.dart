@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snackish/theme.dart';
 
 class Reviews extends StatelessWidget {
   const Reviews({
@@ -11,15 +12,7 @@ class Reviews extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 8,
       children: [
-        Text("Reviews",
-        style: TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w600,
-          letterSpacing: -0.08,
-          height: 1.6,
-          color: Color.fromRGBO(235, 235, 245, .6)
-        ),
-        ),
+        BodySmallText("Reviews"),
         Row(
           spacing: 16,
           children: [

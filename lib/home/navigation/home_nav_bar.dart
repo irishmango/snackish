@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:snackish/categories_button.dart';
 import 'package:snackish/home/navigation/nav_button.dart';
+import 'package:snackish/theme.dart';
 
 class HomeNavBar extends StatelessWidget {
   const HomeNavBar({
@@ -18,16 +19,7 @@ class HomeNavBar extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20, top: 85),
           child: SizedBox(
             width: 280,
-            child: Text("Choose Your Favorite Snack", 
-            style: GoogleFonts.inter(
-              textStyle: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
-                fontSize: 22,
-                height: 1.27,
-                letterSpacing: 0.35
-              )
-              ),),
+            child: DisplayMediumText("Choose Your Favorite Snack")
           ),
         ),
         SizedBox(height: 20),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/recommended/recommend_card.dart';
 import 'package:snackish/models/menu.dart';
+import 'package:snackish/theme.dart';
 
 class RecommendedList extends StatelessWidget {
   final void Function(Menu) onTapCard;
@@ -15,15 +16,7 @@ class RecommendedList extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 20),
-          child: Text("We Recommend",
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 16,
-            fontWeight: FontWeight.w900,
-            height: 1.87,
-            color: Colors.white
-          ),
-          ),
+          child: DisplaySmallText("We Recommend")
         ),
         SizedBox(
           height: 292,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snackish/models/menu.dart';
+import 'package:snackish/theme.dart';
 
 class PortionSizeSelector extends StatelessWidget {
   final PortionSize selectedSize;
@@ -23,24 +24,29 @@ class PortionSizeSelector extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // Small
+
           _buildSizeButton(PortionSize.small, "Small"),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 9),
             child: VerticalDivider(width: 1, thickness: 1),
           ),
-          // Medium
+
           _buildSizeButton(PortionSize.medium, "Medium"),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 9),
             child: VerticalDivider(width: 1, thickness: 1),
           ),
-          // Large
+
           _buildSizeButton(PortionSize.large, "Large"),
         ],
       ),
     );
   }
+
+
+
+
+
 
   Widget _buildSizeButton(PortionSize size, String label) {
     final isSelected = selectedSize == size;
@@ -54,18 +60,11 @@ class PortionSizeSelector extends StatelessWidget {
           borderRadius: BorderRadius.circular(7),
         ),
         child: Center(
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -0.08,
-              height: 1.6,
-              color: isSelected
+          child: BodySmallText(
+            label, 
+            color: isSelected
                   ? Color.fromRGBO(235, 235, 245, 1)
-                  : Color.fromRGBO(235, 235, 235, .6),
-            ),
-          ),
+                  : Color.fromRGBO(235, 235, 235, .6),)
         ),
       ),
     );

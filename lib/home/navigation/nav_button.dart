@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:snackish/theme.dart';
 
 class NavButton extends StatefulWidget {
   final String name;
@@ -59,17 +60,11 @@ class _NavButtonState extends State<NavButton> {
               ),
 
               child: Center(
-                child: Text(widget.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13,
-                      height: 1.9,
-                      letterSpacing: -0.35,
+                child: HeadlineLargeText(widget.name, 
                       color: 
                       buttonState 
                       ? Color.fromRGBO(48, 44, 35, 1)
-                      : Color.fromRGBO(235, 235, 245, 0.6)
-                    ),),
+                      : Color.fromRGBO(235, 235, 245, 0.6))
               ),
           )
         )

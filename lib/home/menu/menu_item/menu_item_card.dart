@@ -5,6 +5,7 @@ import 'package:snackish/home/menu/menu_item/quantity_selector_widget.dart';
 import 'package:snackish/buttons/order_button.dart';
 import 'package:snackish/models/menu.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:snackish/theme.dart';
 
 
 class MenuItemCard extends StatefulWidget {
@@ -105,14 +106,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
                           ],
                         ),
                         child: Center(
-                          child: Text(
-                            "Added to Order!",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: BodyLargeText("Added to Order!")
                         ),
                       ),
                     ),
