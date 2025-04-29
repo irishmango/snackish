@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _cupcakeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     _backgroundController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
     _cardController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
-    _splashTextController = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
+    _splashTextController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
     _pinkCoverController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
 
     _backgroundOffset = Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero).animate(
