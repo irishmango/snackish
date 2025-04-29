@@ -28,7 +28,7 @@ final List<Menu> menu = [
   Menu(
     title: 'Mogli’s Cup',
     subtitle: 'Strawberry ice cream',
-    mainCardSubtitle: 'Strawberry ice cream that transports you to the beach',
+    mainCardSubtitle: 'Strawberry ice cream. Perfect for the beach',
     description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: 200,
     imagePath: 'assets/grafiken/cupkake_cat.png',
@@ -42,7 +42,7 @@ final List<Menu> menu = [
   Menu(
     title: 'Cupcake Chick',
     subtitle: 'Vanilla cupcake',
-    mainCardSubtitle: "Vanilla cupcake perfect for kids both big and small",
+    mainCardSubtitle: "Vanilla cupcake perfect for big and small kids",
     description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: 265,
     imagePath: 'assets/grafiken/cupcake_chick.png',
@@ -56,7 +56,7 @@ final List<Menu> menu = [
   Menu(
     title: 'Balu’s Cup',
     subtitle: 'Pistachio ice cream',
-    mainCardSubtitle: "Pistachio ice cream perfect for a more refined pallet",
+    mainCardSubtitle: "Pistachio ice cream. For savory lovers",
     description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: 200,
     imagePath: 'assets/grafiken/icecream_cone.png',
@@ -84,7 +84,7 @@ final List<Menu> menu = [
   Menu(
     title: 'Kai in a Cone',
     subtitle: 'Vanilla ice cream',
-    mainCardSubtitle: "Vanillia ice cream. A perfect ice cream",
+    mainCardSubtitle: "Vanillia ice cream. A perfect choice",
     description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
     likes: 510,
     imagePath: 'assets/grafiken/icecream.png',
