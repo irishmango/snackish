@@ -7,6 +7,7 @@ import 'package:snackish/home/main_card/home_main_card.dart';
 import 'package:snackish/recommended/recommended_list.dart';
 import 'package:snackish/splash/splash_text.dart';
 import 'package:snackish/home/menu/menu_item/menu_item_card.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,15 +20,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   bool showMenuItemCard = false;
   Menu? selectedMenuItem;
 
+  late Menu randomMenuItem;
+
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
 
   late AnimationController _pinkCoverController;
   late Animation<Offset> _pinkCoverOffset;
 
+  void onMainCardTap() {
+  _toggleMenuItemCard(randomMenuItem);
+}
+
   @override
   void initState() {
     super.initState();
+    
+    // Random homemaincard generator
+    final random = Random();
+    randomMenuItem = menu[random.nextInt(menu.length)];
 
     // Menu Card Controller
     _controller = AnimationController(
@@ -118,7 +129,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               children: [
                 HomeNavBar(),
                 SizedBox(height: 45),
-                HomeMainCard(menu.last),
+                HomeMainCard(menu: randomMenuItem, onTap: onMainCardTap),
                 // SizedBox(
                 //   height: 330, 
                 //   child: 

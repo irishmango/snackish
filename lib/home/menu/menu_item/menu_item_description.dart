@@ -5,21 +5,37 @@ import 'package:snackish/home/menu/menu_item/menu_item_card.dart';
 import 'package:snackish/home/menu/menu_item/reviews.dart';
 import 'package:snackish/card_widgets/clear_card.dart';
 import 'package:snackish/models/menu.dart';
-import 'package:snackish/home/menu/menu_item/portion_size_widget.dart';
 
-class MenuItemDescription extends StatelessWidget {
+class MenuItemDescription extends StatefulWidget {
   final bool isFav;
   final MenuItemCard widget;
   final PortionSize selectedSize;
   final VoidCallback onFavToggle;
+  final int favorited;
 
   const MenuItemDescription({
     super.key,
+    required this.favorited,
     required this.isFav,
     required this.widget,
     required this.selectedSize,
     required this.onFavToggle,
   });
+
+  @override
+  State<MenuItemDescription> createState() => _MenuItemDescriptionState();
+}
+
+class _MenuItemDescriptionState extends State<MenuItemDescription> {
+  late int favorited;
+  late int originalFavorited;
+
+  @override
+  void initState() {
+    super.initState();
+    favorited = widget.favorited;    
+    originalFavorited = widget.favorited;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +56,13 @@ class MenuItemDescription extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     GestureDetector(
-                      onTap: onFavToggle,
-                      child: isFav
+                      onTap: () {
+                        widget.onFavToggle();
+                        setState(() {
+                          favorited = widget.isFav ? originalFavorited : originalFavorited + 1;
+                        });
+                      },
+                      child: widget.isFav
                           ? Icon(
                               Icons.favorite_rounded,
                               color: Color.fromRGBO(217, 66, 171, 1),
@@ -53,12 +74,15 @@ class MenuItemDescription extends StatelessWidget {
                               size: 18,
                             ),
                     ),
-                    Text(
-                      " 200",
-                      style: TextStyle(
-                        color: Color.fromRGBO(235, 235, 240, 0.6),
-                        fontSize: 13,
-                        height: 1,
+                    SizedBox(width: 4,),
+                    SizedBox(
+                      width: 26,
+                      child: Text("$favorited",
+                        style: TextStyle(
+                          color: Color.fromRGBO(235, 235, 240, 0.6),
+                          fontSize: 13,
+                          height: 1,
+                        ),
                       ),
                     ),
                   ],
@@ -67,7 +91,7 @@ class MenuItemDescription extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      widget.menu.title,
+                      widget.widget.menu.title,
                       style: GoogleFonts.inter(
                         textStyle: TextStyle(
                           color: Colors.white,
@@ -81,7 +105,7 @@ class MenuItemDescription extends StatelessWidget {
                     SizedBox(
                       width: 280,
                       child: Text(
-                        widget.menu.description,
+                        widget.widget.menu.description,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 13,
@@ -96,7 +120,7 @@ class MenuItemDescription extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 16, horizontal: 16),
                       child: Text(
-                        "₳${widget.menu.prices[selectedSize]!.toStringAsFixed(2)}",
+                        "₳${widget.widget.menu.prices[widget.selectedSize]!.toStringAsFixed(2)}",
                         style: TextStyle(
                           color: Colors.white,
                           letterSpacing: 0.35,

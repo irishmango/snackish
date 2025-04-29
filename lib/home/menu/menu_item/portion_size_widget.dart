@@ -26,16 +26,24 @@ class PortionSizeSelector extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
 
+          // Small button
           _buildSizeButton(PortionSize.small, "Small"),
-          _buildDivider(isVisible: selectedSize != PortionSize.small && selectedSize != PortionSize.medium),
-          
-          _buildSizeButton(PortionSize.medium, "Medium"),
-          _buildDivider(isVisible: selectedSize != PortionSize.medium && selectedSize != PortionSize.large),
-          
-          _buildSizeButton(PortionSize.large, "Large"),
 
+          // Divider after Small
+          if (selectedSize != PortionSize.small && selectedSize != PortionSize.medium)
+            _buildDivider(),
+
+          // Medium button
+          _buildSizeButton(PortionSize.medium, "Medium"),
+
+          // Divider after Medium
+          if (selectedSize != PortionSize.medium && selectedSize != PortionSize.large)
+            _buildDivider(),
+
+          // Large button
+          _buildSizeButton(PortionSize.large, "Large"),
         ],
-      )
+      ),
     );
   }
 
@@ -62,13 +70,10 @@ class PortionSizeSelector extends StatelessWidget {
     );
   }
 
-  Widget _buildDivider({required bool isVisible}) {
-  return Opacity(
-    opacity: isVisible ? 1 : 0,
-    child: Padding(
+  Widget _buildDivider() {
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 9),
       child: VerticalDivider(width: 1, thickness: 1),
-    ),
-  );
-}
+    );
+  }
 }

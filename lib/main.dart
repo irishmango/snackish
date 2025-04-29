@@ -5,7 +5,6 @@ import 'package:snackish/theme.dart';
 import 'package:flutter/rendering.dart';
 
 void main() {
-  debugPaintSizeEnabled = false;
   runApp(const MyApp());
 }
 
@@ -19,6 +18,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
 
 class Sandbox extends StatelessWidget {
   const Sandbox({super.key});

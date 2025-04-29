@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SmallOrderButton extends StatelessWidget {
+  final VoidCallback onPressed;
 
   const SmallOrderButton({
+    required this.onPressed,
     super.key,
   });
 
@@ -36,9 +38,7 @@ class SmallOrderButton extends StatelessWidget {
     
       ),
       child: TextButton(
-        onPressed:() {
-          
-        },
+        onPressed: onPressed,
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           minimumSize: Size.zero,

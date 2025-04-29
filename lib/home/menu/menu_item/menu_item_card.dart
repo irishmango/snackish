@@ -23,6 +23,13 @@ class _MenuItemCardState extends State<MenuItemCard> {
   int quantity = 1;
   PortionSize selectedSize = PortionSize.small;
   bool showAddedMessage = false;
+  late int favorited;
+
+  @override
+  void initState() {
+    super.initState();
+    favorited = widget.menu.likes; 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +38,8 @@ class _MenuItemCardState extends State<MenuItemCard> {
     void toggleFav() {
       setState(() {
         isFav = !isFav;
+        favorited = isFav ? widget.menu.likes + 1 : widget.menu.likes;
       });
-    
     }
 
     void increaseQuantity() {
@@ -176,6 +183,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
           padding: const EdgeInsets.only(top: 40),
           child: Center(
             child: MenuItemDescription(
+              favorited: favorited,
               isFav: isFav,
               widget: widget,
               selectedSize: selectedSize,

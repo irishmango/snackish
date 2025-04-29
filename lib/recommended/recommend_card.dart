@@ -17,16 +17,25 @@ class RecommendCard extends StatefulWidget {
 
 class _RecommendCardState extends State<RecommendCard> {
   bool isFav = false;
+  late int favorited;
+  late int originalFavorited;
+
+  @override
+  void initState() {
+    super.initState();
+    favorited = widget.recommendationMenu.likes;
+    originalFavorited = widget.recommendationMenu.likes;
+  }
 
   @override
   Widget build(BuildContext context) {
 
-    void toggleFav() {
-      setState(() {
-        isFav = !isFav;
-      });
-    
-    }
+  void toggleFav() {
+    setState(() {
+      isFav = !isFav;
+      favorited = isFav ? originalFavorited + 1 : originalFavorited;
+    });
+  }
 
     return GestureDetector(
       onTap:
@@ -111,12 +120,15 @@ class _RecommendCardState extends State<RecommendCard> {
                                     size: 18,
                                   ),
                           ),
-                          Text(widget.recommendationMenu.likes,
-                          style: TextStyle(
-                            color: Color.fromRGBO(235, 235, 245, 0.6),
-                            fontSize: 13,
-                            fontWeight: FontWeight.normal
-                          ),
+                          SizedBox(
+                            width: 26,
+                            child: Text("$favorited",
+                            style: TextStyle(
+                              color: Color.fromRGBO(235, 235, 245, 0.6),
+                              fontSize: 13,
+                              fontWeight: FontWeight.normal
+                            ),
+                            ),
                           )
                         ],
                       )

@@ -6,11 +6,21 @@ import 'dart:ui';
 import 'package:snackish/models/menu.dart';
 
 
-class HomeMainCard extends StatelessWidget {
+class HomeMainCard extends StatefulWidget {
   final Menu menu;
+  final VoidCallback onTap;
+  
 
-  const HomeMainCard(this.menu, {super.key});
+  const HomeMainCard({
+    required this.menu,
+    required this.onTap,
+    super.key});
 
+  @override
+  State<HomeMainCard> createState() => _HomeMainCardState();
+}
+
+class _HomeMainCardState extends State<HomeMainCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -65,7 +75,7 @@ class HomeMainCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    menu.title,
+                                    widget.menu.title,
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
@@ -78,7 +88,7 @@ class HomeMainCard extends StatelessWidget {
                                     width: 150,
                                     height: 35,
                                     child: Text(
-                                      menu.subtitle,
+                                      widget.menu.mainCardSubtitle,
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w500,
@@ -95,7 +105,9 @@ class HomeMainCard extends StatelessWidget {
                           ),
       
                           // Button
-                          SmallOrderButton(),
+                          SmallOrderButton(
+                            onPressed: widget.onTap,
+                          ),
                         ],
                       ),
       
@@ -122,9 +134,9 @@ class HomeMainCard extends StatelessWidget {
           ),
           Positioned(
             right: 20,
-            top: 45,
+            top: widget.menu.imageTopPadding,
             child: Image.asset(
-              menu.imagePath,
+              widget.menu.imagePath,
               width: 240,
             ),
           ),
