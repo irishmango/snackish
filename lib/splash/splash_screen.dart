@@ -3,7 +3,7 @@ import 'package:snackish/src/background/gradient_scaffold.dart';
 import 'package:snackish/src/background/pink_background.dart';
 import 'package:snackish/splash/splash_card.dart';
 import 'package:snackish/splash/splash_text.dart';
-import 'package:snackish/home/home.dart'; // <-- your Home page
+import 'package:snackish/home/home.dart'; 
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,12 +20,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   late AnimationController _backgroundController;
   late AnimationController _cardController;
   late AnimationController _splashTextController;
-  late AnimationController _pinkCoverController; // <-- important
+  late AnimationController _pinkCoverController; 
 
   late Animation<Offset> _backgroundOffset;
   late Animation<Offset> _cardOffset;
   late Animation<Offset> _splashTextOffset;
-  late Animation<Offset> _pinkCoverOffset; // <-- important
+  late Animation<Offset> _pinkCoverOffset; 
 
   @override
   void initState() {
@@ -121,7 +121,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     return GradientScaffold(
       child: Stack(
         children: [
-          // Pink background (static)
+          // Pink background 
           SlideTransition(
             position: _backgroundOffset,
             child: const PinkBackground(),
