@@ -40,6 +40,20 @@ final List<Menu> menu = [
     imageTopPadding: 30,
   ),
   Menu(
+    title: 'Kai in a Cone',
+    subtitle: 'Vanilla ice cream',
+    mainCardSubtitle: "Vanillia ice cream. A perfect choice",
+    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
+    likes: 510,
+    imagePath: 'assets/grafiken/icecream.png',
+    prices: {
+      PortionSize.small: 2.99,
+      PortionSize.medium: 3.49,
+      PortionSize.large: 3.99,
+    },
+    imageTopPadding: 30,
+  ),
+  Menu(
     title: 'Cupcake Chick',
     subtitle: 'Vanilla cupcake',
     mainCardSubtitle: "Vanilla cupcake perfect for big and small kids",
@@ -81,21 +95,6 @@ final List<Menu> menu = [
     },
     imageTopPadding: 30,
   ),
-  Menu(
-    title: 'Kai in a Cone',
-    subtitle: 'Vanilla ice cream',
-    mainCardSubtitle: "Vanillia ice cream. A perfect choice",
-    description: "Lorem ipsum dolor sit amet consectetur. Non feugiat imperdiet a vel sit at amet. Mi accumsan feugiat magna aliquam feugiat ac et. Pulvinar hendrerit id arcu at sed etiam semper mi hendrerit. Id aliquet quis quam.",
-    likes: 510,
-    imagePath: 'assets/grafiken/icecream.png',
-    prices: {
-      PortionSize.small: 2.99,
-      PortionSize.medium: 3.49,
-      PortionSize.large: 3.99,
-    },
-    imageTopPadding: 30,
-  ),
-
     Menu(
     title: "Angi's Yummy Burger",
     subtitle: 'Vegan burger',
