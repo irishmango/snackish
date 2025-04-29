@@ -196,14 +196,17 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             position: _pinkCoverOffset,
             child: SizedBox.expand(
               child: Transform.translate(
-                offset: const Offset(0, 0),
-              child: Image.asset(
-                'assets/hintergründe/background_pink_big.png',
-                fit: BoxFit.cover,
+                offset: const Offset(0, -100), 
+                child: Transform.scale(
+                  scale: 1.2, 
+                  child: Image.asset(
+                    'assets/hintergründe/background_pink_big.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ),
-          )
         ],
       ),
     );
