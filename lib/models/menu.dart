@@ -112,9 +112,3 @@ final List<Menu> menu = [
   ),
 ];
 
-final List<Menu> recommendationMenu = [
-  menu[0], // Mogli’s Cup
-  menu[3], // Balu’s Cup
-  menu[4], // Smiling David
-  menu[5], // Kai in a Cone
-];
