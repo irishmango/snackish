@@ -174,9 +174,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           SlideTransition(
             position: _pinkCoverOffset,
             child: SizedBox.expand(
-              child: Image.asset(
-                'assets/hintergründe/background_pink_big.png',
-                fit: BoxFit.cover,
+              child: Transform.translate(
+                offset: const Offset(0, -100), 
+                child: Transform.scale(
+                  scale: 1.2, 
+                  child: Image.asset(
+                    'assets/hintergründe/background_pink_big.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ),
