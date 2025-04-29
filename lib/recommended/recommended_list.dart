@@ -22,15 +22,15 @@ class RecommendedList extends StatelessWidget {
           height: 292,
           child: ListView.separated(
             padding: EdgeInsets.only(left: 20, right: 20),
-            itemCount: recommendationMenu.length,
+            itemCount: menu.length,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) {
               return SizedBox(width: 24,);
             },
             itemBuilder: (context, index) {
-              final menuItem = recommendationMenu[index];
+              final menuItem = menu[index];
               return RecommendCard(
-                recommendationMenu: menuItem,
+                menu: menuItem,
                 onTap: () => onTapCard(menuItem), 
               );
             }

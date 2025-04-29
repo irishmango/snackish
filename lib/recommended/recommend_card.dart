@@ -3,11 +3,11 @@ import 'package:snackish/models/menu.dart';
 import 'package:snackish/card_widgets/frosted_color_card.dart';
 
 class RecommendCard extends StatefulWidget {
-  final Menu recommendationMenu;
+  final Menu menu;
   final VoidCallback onTap;
 
   const RecommendCard({
-    required this.recommendationMenu,
+    required this.menu,
     required this.onTap,
     super.key});
 
@@ -23,8 +23,8 @@ class _RecommendCardState extends State<RecommendCard> {
   @override
   void initState() {
     super.initState();
-    favorited = widget.recommendationMenu.likes;
-    originalFavorited = widget.recommendationMenu.likes;
+    favorited = widget.menu.likes;
+    originalFavorited = widget.menu.likes;
   }
 
   @override
@@ -56,7 +56,7 @@ class _RecommendCardState extends State<RecommendCard> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Center(
-                    child: Image.asset(widget.recommendationMenu.imagePath, 
+                    child: Image.asset(widget.menu.imagePath, 
                     width: 170,),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _RecommendCardState extends State<RecommendCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(widget.recommendationMenu.title,
+                      Text(widget.menu.title,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class _RecommendCardState extends State<RecommendCard> {
                         color: Colors.white
                       ),
                       ),
-                      Text(widget.recommendationMenu.subtitle,
+                      Text(widget.menu.subtitle,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -93,8 +93,8 @@ class _RecommendCardState extends State<RecommendCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                      widget.recommendationMenu.prices[PortionSize.small] != null
-                        ? '₳${widget.recommendationMenu.prices[PortionSize.small]!.toStringAsFixed(2)}'
+                      widget.menu.prices[PortionSize.small] != null
+                        ? '₳${widget.menu.prices[PortionSize.small]!.toStringAsFixed(2)}'
                         : 'Price N/A',
                       style: TextStyle(
                         fontSize: 15,
