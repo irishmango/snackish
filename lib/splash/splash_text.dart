@@ -26,6 +26,7 @@ class SplashText extends StatelessWidget {
         height: fontsize * 0.8,
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
+          physics: NeverScrollableScrollPhysics(),
           child: Text(
             "SNACK SNACK",
             style: GoogleFonts.roboto(
@@ -38,6 +39,7 @@ class SplashText extends StatelessWidget {
                 ..style = PaintingStyle.stroke
                 ..strokeWidth = 2.54
                 ..color = Colors.white.withAlpha(strokeOpacity),
+                
             ),
           ),
         ),
@@ -47,6 +49,7 @@ class SplashText extends StatelessWidget {
     return SizedBox(
       height: fontsize,
       child: Marquee(
+        // text attributes
         text: "SNACK SNACK SNACK SNACK SNACK SNACK SNACK SNACK ",
         style: GoogleFonts.roboto(
           letterSpacing: -2,
@@ -59,6 +62,7 @@ class SplashText extends StatelessWidget {
             ..strokeWidth = 2.54
             ..color = Colors.white.withAlpha(strokeOpacity),
         ),
+        // animation attributes
         scrollAxis: Axis.horizontal,
         textDirection: direction,
         crossAxisAlignment: CrossAxisAlignment.start,

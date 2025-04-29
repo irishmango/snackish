@@ -148,7 +148,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
           // Cupcake Image
           Positioned(
-            top: 205,
+            top: 160,
             right: -90,
             child: FadeTransition(
               opacity: _cupcakeController,
@@ -164,14 +164,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
           // Sliding Splash Text
           Positioned(
-            bottom: 265,
-            left: -10,
+            bottom: 290,
+            left: -230,
             right: 0,
             child: SlideTransition(
               position: _splashTextOffset,
               child: const SplashText(
                 fontsize: 115,
-                direction: TextDirection.rtl,
+                enabled: false,
               ),
             ),
           ),
