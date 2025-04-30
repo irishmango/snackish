@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/categories_button.dart';
+import 'package:snackish/buttons/categories_button.dart';
 import 'package:snackish/home/navigation/nav_button.dart';
 import 'package:snackish/theme.dart';
 

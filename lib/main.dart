@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/src/background/gradient_scaffold.dart';
+import 'package:snackish/background/gradient_scaffold.dart';
 import 'package:snackish/splash/splash_screen.dart';
 import 'package:snackish/theme.dart';
 import 'package:flutter/rendering.dart';
