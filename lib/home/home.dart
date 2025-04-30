@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:snackish/src/background/gradient_scaffold.dart';
+import 'package:snackish/background/gradient_scaffold.dart';
 import 'package:snackish/home/navigation/home_nav_bar.dart';
 import 'package:snackish/models/menu.dart';
-import 'package:snackish/src/background/pink_background_big.dart';
+import 'package:snackish/background/pink_background_big.dart';
 import 'package:snackish/home/main_card/home_main_card.dart';
 import 'package:snackish/recommended/recommended_list.dart';
 import 'package:snackish/splash/splash_text.dart';

@@ -78,6 +78,7 @@ flutter:
 
     - assets/hintergründe/pink_bg.png
     - assets/hintergründe/background_pink_big.png
+    - assets/hintergründe/background_pink_massive.png
 
     - assets/details/cut_card.png
     - assets/details/clear_card.svg
