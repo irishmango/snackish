@@ -1,16 +1,49 @@
-# snackish
+# Snackish – Flutter Ordering App
 
-A new Flutter project.
+Snackish is a vibrant, animated Flutter app that brings desserts to life with a frosted-glass UI, dynamic menu cards, and fun order interactions. Designed to demonstrate creative UI skills and component architecture in Flutter.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Animated splash screen with marquee text and cupcake reveal
+- Beautiful product cards with glassmorphism and hero images
+- Favorite buttons with live like counts
+- Portion size selection and quantity adjustments
+- Add to order with dynamic price calculation and feedback popups
+- Cleanly animated screen transitions
 
-A few resources to get you started if this is your first Flutter project:
+## Built With
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter** & **Dart**
+- **Custom animations** using `AnimationController` and `SlideTransition`
+- **Provider-style widget state management**
+- **Marquee text** animation
+- **Frosted glass cards** using `BackdropFilter`
+- **Responsive layout** and visual effects
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Folder Structure Highlights
+
+- `splash/` – Splash screen logic and animated text
+- `home/` – Main menu, card displays, and menu interaction
+- `models/menu.dart` – Sample product data with portion-based pricing
+- `card_widgets/` – Reusable frosted-glass and styled card components
+- `buttons/` – Custom buttons styled with gradients and shadows
+
+## Learning Highlights
+
+- Created complex staggered animations for splash flow
+- Built a reusable menu system with dynamic pricing
+- Designed glass UI elements with Flutter’s `BackdropFilter`
+- Implemented animated favorites and ordering logic
+- Practiced modular code organization and UI layering
+
+## Future Ideas
+
+- Firestore backend for orders and user accounts
+- Persistent favorites with local storage
+- Cart and checkout system
+- Multilingual support and theming
+
+## Screenshots
+- [Spashscreen](assets/screenshots/sim_1.png)
+- [Home Screen](assets/screenshots/sim_2.png)
+- [Order Screen](assets/screenshots/sim_3.png)
